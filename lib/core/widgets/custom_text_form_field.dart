@@ -16,18 +16,20 @@ class CustomTextFormField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+
       maxLines: lines,
       minLines: lines,
       obscureText: obscureText,
       keyboardType: textInputType,
       onSaved: onSaved ,
       validator: (value) {
-        if (value == null || value.isEmpty) {
-          return 'هذا الحقل مطلوب';
+        if (value?.isEmpty ?? true) {
+          return 'this field is required';
         }
         return null;
       },
       decoration: InputDecoration(
+        
 
         hintText: hintText,hintStyle: TextStyle(color: Colors.white),
         suffixIcon: suffixIcon,
@@ -39,9 +41,9 @@ class CustomTextFormField extends StatelessWidget {
     );
   }
 
-  UnderlineInputBorder buildBorder() {
-    return UnderlineInputBorder(
-
+  OutlineInputBorder buildBorder() {
+    return OutlineInputBorder(
+borderRadius: BorderRadius.circular(17),
         borderSide: BorderSide(
 
           width: 1,

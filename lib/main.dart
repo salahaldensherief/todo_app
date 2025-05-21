@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/adapters.dart';
+import 'package:todo_app/core/constants.dart';
 import 'package:todo_app/core/utils/app_colors.dart';
 
 import 'core/helper_function/on_generate_routes.dart';
@@ -9,7 +10,7 @@ import 'features/home/presentation/views/widgets/bottom_navigation_tabs.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Hive.initFlutter();
-  await  Hive.openBox('todos');
+  await  Hive.openBox(kNotesBox);
   runApp(const MyApp());
 }
 
